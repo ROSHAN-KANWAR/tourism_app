@@ -1,0 +1,1 @@
+web : gunicorn newcgtourism.wsgi --log-file -

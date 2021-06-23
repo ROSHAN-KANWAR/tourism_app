@@ -13,6 +13,7 @@ django-import-export==2.5.0
 django-map-widgets==0.3.1
 django-widget-tweaks==1.4.8
 et-xmlfile==1.1.0
+gunicorn==20.1.0
 idna==2.10
 MarkupPy==1.14
 oauthlib==3.1.1
