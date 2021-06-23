@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{%block title%} TempleOtherPhoto {%endblock title%}
+
+{%block Main %}
+<div class="container"><br>
+
+
+        <form class="d-flex"   method="get">
+<label>Chhose District..</label>
+     {% render_field filter.form.district class="form-select" %}
+
+
+      <button type="submit" class="btn btn-primary btns2 mx-2">
+    <i class="fas fa-search p-1 mx-2"></i>
+  </button>
+</form>
+<br>
+           <a href="{%url 'home' %}" class="homes"> <i class="fas fa-arrow-left mb-3 mx-2"> Back to Home</i></a>
+
+    <h3>Photo Gallery</h3>
+    <br>
+    <div class="row text-center">
+        {%for gls in gls %}
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 mt-1 tem">
+
+         <a href="{% url 'galleryview' gls.id %}">
+            <img src="{{gls.file.url}}" class="img-thumbnail" alt="loading image">
+         </a>
+            <p>{{gls.name}} {{gls.type}} <br>
+           ( {{gls.district}})
+        </p>
+
+        </div>
+
+        {%endfor%}
+        <br>
+    </div>
+<!--
+<div class="row text-center">
+    <nav aria-label="Page navigation example text-center">
+  <ul class="pagination">
+      {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{page_obj.previous_page_number}}" >Previous</a>
+    </li>
+       {%endif%}
+    <li class="page-item"><a class="page-link" href="#">{{page_obj.number}}  of {{page_obj.paginator.num_pages}}</a></li>
+
+      {% if page_obj.has_next %}
+
+    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+    </li>
+      {%endif%}
+  </ul>
+</nav>
+</div>
+-->
+
+</div>
+
+
+
+{%endblock%}

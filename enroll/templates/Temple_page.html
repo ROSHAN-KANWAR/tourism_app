@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{%block title%} TemplesInChhattisgarh {%endblock title%}
+
+{%block Main %}
+
+<div class="container">
+
+<br>
+
+        <form class="d-flex"   method="get">
+<label>Chhose District..</label>
+     {% render_field filter.form.district class="form-select" %}
+
+      <button type="submit" class="btn btn-primary btns2 mx-2">
+    <i class="fas fa-search p-1 mx-2"></i>
+  </button>
+</form>
+
+<br>
+    <div class="row">
+                   <a href="{%url 'home' %}" class="homes"> <i class="fas fa-arrow-left mb-3 mx-2"> Back to Home</i></a>
+
+        <h2>Popular Temples</h2><br>
+        <div class="col-md-12">
+            <div class="row">
+                {% for all in all %}
+        <div class="col-md-4 col-sm-6  mt-1">
+        <div class="card-deck cards">
+              <div class="card">
+  <a href="{% url 'templeview'  all.id  %}">
+      <img class="card-img-top" src="{{all.file.url}}" alt="Card image cap">
+  </a>
+    <div class="card-body tem">
+      <p class="card-title"><b>{{all.name}}    (  {{all.district}} )</b></p>
+      <p class="card-text">{{all.dec |truncatewords:20}} <a href="{% url 'templeview' all.id %}">Read More</a> </p>
+    </div>
+
+            <div class="fb-like" data-href="http://127.0.0.1:8000/temple_page/" data-width="2px" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
+
+  </div>
+        </div>
+        </div>
+                {%endfor%}
+            </div>
+            <br>
+        </div>
+
+</div>
+
+</div>
+
+{%endblock%}

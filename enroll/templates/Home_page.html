@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%} Welcome To Chhattisgarh {%endblock title%}
+
+{%block Main%}
+<div class="container main">
+<div class="row bgimage1">
+    <div class="col-md-12 col-sm-12">
+<h3>C.G Tourism,
+<p>
+ <b> Welcome to Chhattisgarh</b></p></h3>
+        <h4 class="mb-2">Welcome to <span class="typed"></span>....</h4>
+
+    </div>
+</div>
+<div class="row  mx-2 mt-3 temps">
+    <div class="col-md-3"></div>
+<a href="{% url 'temple' %}" class="btn btn-outline-primary col-md-3 col-sm-3 p-3 mx-2 mb-2 text-center">
+<h3>Temple</h3>
+</a>
+<a href="{% url 'gallery' %}" class="btn btn-outline-primary col-md-3 col-sm-3 p-3 mx-2 mb-2">
+<h3>Gallery</h3>
+</a>
+    <div class="col-md-3"></div>
+</div>
+
+</div>
+   
+
+
+
+<div class="container gover mt-4">
+<div class="row">
+    <div class="col-md-12 mx-2  tem">
+        <h3>Government of Chhattisgarh</h3>
+        <p>
+            The Government of Chhattisgarh also known as the State Government of
+Chhattisgarh, or locally as State Government, is the supreme governing
+authority of the Indian state of Chhattisgarh and its 27 districts. It consists of an
+executive, led by the Governor of Chhattisgarh, a judiciary and a legislative
+branch.
+Like other states in India, the head of state of Chhattisgarh is the Governor,
+appointed by the President of India on the advice of the Central government.
+His or her post is largely ceremonial. The Chief Minister is the head of
+government and is vested with most of the executive powers. Raipur is the
+capital of Chhattisgarh, and houses the Chhattisgarh Vidhan Sabha (Legislative
+Assembly) and the secretariat. The Chhattisgarh High Court, located Bilaspur,
+has jurisdiction over the whole state
+        </p>
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10 photo">
+    <div class="row images text-center">
+    <div class="col-md-4">
+    <img src="{% static 'image/modi.png' %}" class="img-fluid rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle" alt="image_load">
+   
+     <h3> Narendra Modi </h3>
+          Honourable Prime Minister (India)
+     
+    </div>
+    <div class="col-md-4">
+    <img src="{%static 'image/bhagel.png' %}" class="img-fluid rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle" alt="image_load">
+    <h3> Bhupesh Bhagel</h3>
+           Chief Minister (Chhattisgarh)
+     
+    </div>
+    <div class="col-md-4 prahlad">
+    <img src="{%static 'image/download.jfif' %}" class="img-fluid rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle" alt="image_load">
+  <h3>Prahlad Singh Patel </h3>
+          Union Culture and Tourism Minister (India)
+   </div>
+    </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<br><br>
+<div class="row">
+<div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h4>List of All District </h4><br>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Official Sites</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for dis in dis%}
+    <tr>
+      <th scope="row">{{dis.id}}</th>
+      <td>{{dis.district}}</td>
+
+      <td>
+          <a href="{{dis.urls}}" target="_blank">
+              {{dis.urls}}
+          </a></td>
+     
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+      <br>
+
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+{%endblock%}
+
+{%block js%}
+var typed = new Typed('.typed', {
+  strings: ['Raipur','Durg','Korba','Bhilai','Bilaspur'],
+    typeSpeed: 100,
+    backSpeed:100,
+  loop:true,
+})
+{%endblock js%}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title%} {{all.district}} {{all.name}}  {{all.type}}  {%endblock title%}
+
+{%block Main %}
+<div class=" container">
+    <br>
+    <div class="row arrow">
+       <a href="{%url 'temple' %}" class="homes"> <i class="fas fa-arrow-left mb-2"> Back to Temple</i></a>
+        <h4>All Detail of {{all.name}} {{all.type}}</h4>
+       <div class="col-md-9 tem">
+           <br>
+        <img src="{{all.file.url}}" class="img-fluid" alt="loading image">
+           <br><br>
+       <h3 class="mt-1">{{all.name}}  {{all.type}}  (  {{all.district}} )
+</h3>
+           <p>{{all.dec}}</p>
+        </div>
+
+
+        <div class="col-md-3">
+            <h4>District - {{all.district}}</h4>
+            <h4>Related To Other Place</h4>
+  <h5>Working for this section.........</h5>
+        </div>
+    </div>
+
+<br>
+    <div class="row">
+        <h2>Related Others  Temples</h2><br>
+        <div class="col-md-12">
+            <div class="row">
+                {% for all in allview %}
+        <div class="col-md-3 col-sm-6  mt-1">
+        <div class="card-deck cards">
+              <div class="card">
+  <a href="{% url 'templeview' all.id %}">
+      <img class="card-img-top" src="{{all.file.url}}" alt="Card image cap">
+  </a>
+    <div class="card-body tem">
+      <p class="card-title"><b>{{all.name}}    (  {{all.district}} )</b></p>
+      <p class="card-text">{{all.dec |truncatewords:10}} <a href="{% url 'templeview' all.id %}">Read More</a> </p>
+    </div>
+    </div>
+        </div>
+        </div>
+{%endfor%}
+            </div>
+
+
+
+
+
+</div>
+
+{%endblock%}

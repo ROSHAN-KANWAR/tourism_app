@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%} Welcome To Chhattisgarh {%endblock title%}
+
+{%block Main%}
+
+<div class="container">
+        <div class="row mt-4">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                        <div class="row">
+<!-- this is temple post table-->
+                                <div class="col-md-10 mt-2">
+                                           <h2>Temple All Post</h2>
+                                        <table class="table">
+                          <thead class="bg-dark text-white">
+                            <tr>
+                              <th scope="col">S.No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">District </th>
+                                    <th scope="col">Type</th>
+                                <th scope="col">File</th>
+                                    <th scope="col">Dec</th>
+                                      <th scope="col">Edit</th>
+                                      <th scope="col">Del</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for tem in tem %}
+                            <tr>
+                              <th scope="row"> {{tem.id}}</th>
+                              <td> {{tem.name}}</td>
+                              <td> {{tem.district}}</td>
+                                  <td><a href="{{tem.file.url}}">Temple photo</a></td>
+                                     <td> {{tem.type}}</td>
+                                     <td> {{tem.dec|truncatewords:20}}</td>
+                                    <td>
+                                             <form action="{% url 'edit' tem.id %}" method="POST">
+                                       {%csrf_token%}
+                               <button type="submit" class="btn btn-outline-primary">
+                               <i class="far fa-edit"></i>
+                                      </button>
+                                   </form>
+                                    </td>
+                                    <td>
+                                 <form action="{% url 'delete' tem.id %}" method="POST">
+                        {%csrf_token%}
+                         <button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                 </form>
+                                    <td>
+
+                            </tr>
+                          {%endfor%}
+                          </tbody>
+                        </table>
+
+                                </div>
+                                <div class="col-md-2 add">
+
+        <a href="{% url 'temadd' %}" class="nav-link  mx-2"><h3>Add +</h3></a>
+
+                                </div>
+                        </div>
+                    <!-- this is temple post table-->
+
+                    <!-- this is gallery post table-->
+
+                     <div class="row">
+                                <div class="col-md-10 mt-2">
+                                           <h2>Gallery All Post</h2>
+                                        <table class="table">
+                          <thead class="bg-secondary text-white">
+                            <tr>
+                              <th scope="col">S.No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">District </th>
+                                    <th scope="col">File</th>
+                                <th scope="col">Type</th>
+                                      <th scope="col">Edit</th>
+                                      <th scope="col">Del</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for tem in gls %}
+                            <tr>
+                              <th scope="row"> {{tem.id}}</th>
+                              <td> {{tem.name}}</td>
+                              <td> {{tem.district}}</td>
+                                  <td><a href="{{tem.file.url}}">Gallery photo</a></td>
+                                     <td> {{tem.type}}</td>
+                                    <td>
+                                             <form action="{% url 'edit1' tem.id %}" method="POST">
+                                       {%csrf_token%}
+                               <button type="submit" class="btn btn-outline-primary">
+                               <i class="far fa-edit"></i>
+                                      </button>
+                                   </form>
+                                    </td>
+                                    <td>
+                                 <form action="{% url 'delete1' tem.id %}" method="POST">
+                        {%csrf_token%}
+                         <button type="submit" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                 </form>
+                                    <td>
+
+                            </tr>
+                          {%endfor%}
+                          </tbody>
+                        </table>
+
+                                </div>
+                                <div class="col-md-2 add">
+
+        <a href="{% url 'temadd1' %}" class="nav-link  mx-2"><h3>Add +</h3></a>
+
+                                </div>
+                        </div>
+
+                    <!-- this is gallery post table-->
+
+
+
+
+
+                </div>
+                <div class="col-md-1">
+
+             <a href="{%url 'user_logout' %}" class="nav-link btn-outline-danger mx-2">Logout</a>
+
+                </div>
+        </div>
+</div>
+{%endblock%}

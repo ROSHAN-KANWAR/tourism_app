@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{%block title%} Contact_page {%endblock title%}
+
+{%block Main %}
+<div class="container">
+    <div class="contact">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10"><br>
+                           <a href="{%url 'home' %}" class="homes"> <i class="fas fa-arrow-left mb-3 mx-2"> Back to Home</i></a>
+
+               <h3>Contact</h3>
+                <p class=" text-center">Contact our teams for visitng all these temple
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book.</p>
+<br><div class="row">
+    <div class="col-md-12">
+
+
+    <form method="post" autocomplete="off" novalidate   enctype="multipart/form-data" onsubmit="return validateform()" >
+        {%csrf_token%}
+ <div class="form-group">
+    <label class="col-md-3 mb-1">Enter Name :</label>
+     <input type="text" id="names" name="name" class=" form-control col-md-9" placeholder="Enter Name..." >
+<span class="nam text-danger mt-1"></span>
+   </div><br>
+  <div class="form-group">
+    <label class="col-md-3 mb-1">Email Address :</label>
+     <input  id="emails" name="email" class=" form-control col-md-9" placeholder="Enter valid email..." >
+      <small id="emailHelp3" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div><br>
+ <div class="form-group">
+
+    <label class="col-md-3 mb-1">Your Query :</label>
+<textarea  id="mortag" name="problem" class="form-control"  style="height: 100px"  placeholder="Please tell us ,if any query regarding to this site ?.."  ></textarea>
+     <small id="texHelp13" class="form-text text-muted">Maximum 200 word are allowed.</small>
+   <span class="tells text-danger"></span>
+</div>
+<br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+    </div>
+            </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<br><br>
+
+{%endblock%}
+
+{%block js%}
+function validateform(){
+var emails=document.querySelector("#emails").value;
+var name=document.querySelector("#names").value;
+var mor=document.querySelector("#mortag").value;
+
+if(mor==null || mor==""){
+var sp= document.querySelector(".tells")
+ sp.innerHTML= "Suggestions can't be blank";
+  return false;
+}
+if(mor.length>200){
+var sp= document.querySelector(".tells")
+ sp.innerHTML= "Maximum 200 words are allowed";
+  return false;
+}
+  if(!isNaN(mor)){
+                let sp = document.querySelector(".tells")
+              sp.innerHTML = "Only character are allowed"
+              return false
+          }
+
+if (name==null || name==""){
+var sp= document.querySelector(".nam")
+ sp.innerHTML= "Name can't be blank";
+  return false;
+}
+  if(!isNaN(name)){
+                let sp = document.querySelector(".nam")
+              sp.innerHTML = "Only character are allowed"
+              return false
+          }
+
+  ///email
+
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if(emails.match(mailformat))
+    {
+    return true;
+    }
+      else
+      {
+swal({
+  title: "Invalid Email!",
+  text: "Please check your email !",
+  icon: "warning",
+  button: "Ok",
+});
+      return false;
+      }
+
+
+<!--swal({-->
+<!--  title: "Good job!",-->
+<!--  text: "You clicked the button!",-->
+<!--  icon: "success",-->
+<!--  button: "Aww yiss!",-->
+<!--});-->
+}
+{%endblock js%}

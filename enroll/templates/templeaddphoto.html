@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{%block title%} Contact_page {%endblock title%}
+
+{%block Main %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+               <h3 class="mt-4 p-3 ">Add Temple Photo</h3>
+        <form  method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+<div class="form-group mb-2">
+    <label>Temple Name :</label>
+     {% render_field fm.name class="form-control" %}
+  </div>
+<div class="form-group mb-2">
+    <label>District Name :</label>
+     {% render_field fm.district class="form-control" %}
+  </div>
+            <div class="form-group mb-2">
+    <label>Type Name :</label>
+     {% render_field fm.type class="form-control" %}
+  </div>
+            <div class="form-group mb-2">
+    <label>Choose Image :</label>
+     {% render_field fm.file class="form-control" type="file" %}
+                <small class="text-muted">1024x577</small>
+  </div>
+<div class="form-group mb-2">
+    <label>Write decription :</label>
+     {% render_field fm.dec class="form-control" %}
+  </div>
+   <button type="submit" class=" btn btn-success mt-2">Post</button>
+</form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{%endblock Main%}

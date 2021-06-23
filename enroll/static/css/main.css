@@ -1,0 +1,178 @@
+  *{
+        }
+    body{
+            margin: 0;
+            padding: 0;
+            font-family:' Gill Sans Extrabold, sans-serif'
+           }
+
+        .bgnav{
+ background:red;
+ }
+
+        .navbtn{
+            font-size: 44px;
+            color: red;
+        }
+        /*home page css 8*/
+
+    .bgimage1 h3{
+        margin-top: 60px;
+    color: rgb(98, 100, 238);
+  text-align: center;
+    font-size:53px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    word-spacing: 10px;
+    font-family:'Arial Narrow', Arial, sans-serif;
+    
+    text-shadow: 3px 3px sold rgb(95, 30, 30);
+}
+
+
+ .bgimage1 p{
+    color: rgb(98, 100, 238);
+  text-align: center;
+    font-size:53px;
+}
+.active li:hover{
+color:white;
+border-bottom:0.9px solid red;
+}
+bgnav ul li{
+ padding:4px 12px;
+ border:2ps=x solid grey;
+ }
+a.active a:active{
+border-bottom:0.9px solid red;
+color:white;
+}
+ul li {
+font-size:23px;
+color:white;
+
+}
+
+.btemple h5{
+    text-decoration: none;
+    margin-left: 80px;
+    width: 170px;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    
+}
+.btemple a{
+    text-decoration: none;
+}
+
+.gover p{
+ font-size:20px;
+ margin-top: 18px;
+}
+
+/*
+@media only screen and (max-width:1000px) {
+
+    .main{
+         height:50%;
+         width: auto;
+         background-repeat:no-repeat;
+ background-position: center center;
+ background-size:contain;
+ mix-blend-mode:darken;
+      }
+.bgimage1 {
+    height: 90vh;
+
+ background: linear-gradient(lightgreen,rgb(248, 246, 247));
+}
+   .bgimage1 h3 {
+       margin-top: 300px;
+    text-align: center;
+    font-size: 60px;
+    color: rgb(36, 29, 29);
+    font-weight: 100;
+    text-shadow: 3px 3px solid red;
+}
+   .btns{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       text-align: center;
+       margin-left: 270px;
+       transition: transform all 2s;
+       transform: scale(1);
+       background-color: rgb(187, 209, 223);
+       border-radius: 20px;
+       align-items: center;
+       height: 60px;
+     
+       
+   }
+    .btns .btn1{
+        font-family: Arial, Helvetica, sans-serif;
+     color: rgb(17, 16, 16);
+     font-size: 40px;
+     margin-left: 90px;
+       background-color: rgb(100, 226, 89);
+       border-radius: 20px;
+       align-items: center;
+   }
+   .btns .btn1:hover{
+       transform: scale(1.7);
+       
+       transition: transform all 2s;
+       
+   }
+}
+*/
+.images img{
+    border-radius: 100%;
+    width: 200px;
+}
+.prahlad img{
+    border-radius: 100%;
+    width: 240px;
+    height: 180px;
+}
+/*home page css */
+
+/*about page css */
+
+.aboutpage h3, h5{
+  color:blue;
+    font-size: 30px;
+    color: rgb(36, 29, 29);
+    font-weight: 100;
+    margin-left:20px;
+
+}
+.aboutpage p{
+ margin-left:20px;
+ font-size:20px;
+}
+
+
+/*temple page css */
+.other p{
+text-decoration:none;
+}
+.cards img{
+height:200px;}
+
+
+
+/*gallery page css */
+
+.contact p{
+ margin-left:20px;
+ font-size:20px;
+}
+.contact label,placeholder{
+ font-size:20px;
+}
+
+/*footer*/
